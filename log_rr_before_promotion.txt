@@ -1,0 +1,38 @@
+[ec2-user@ip-10-2-10-111 ~]$ mysql -u admin -h udacityreplica.chwfeekrbuzb.eu-west-2.rds.amazonaws.com -p
+Enter password:
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 16
+Server version: 8.0.23 Source distribution
+
+Copyright (c) 2000, 2021, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> use udacity
+Reading table information for completion of table and column names
+You can turn off this feature to get a quicker startup with -A
+
+Database changed
+mysql> show tables;
++-------------------+
+| Tables_in_udacity |
++-------------------+
+| test_table        |
++-------------------+
+1 row in set (0.03 sec)
+
+mysql> SELECT * FROM test_table;
++------------+
+| message    |
++------------+
+| Hi Udacity |
++------------+
+1 row in set (0.00 sec)
+
+mysql> INSERT INTO test_table VALUES ('Hi Udacity 22222');
+ERROR 1290 (HY000): The MySQL server is running with the --read-only option so it cannot execute this statement
+mysql>

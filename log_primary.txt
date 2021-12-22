@@ -1,0 +1,44 @@
+[ec2-user@ip-10-1-10-29 ~]$ mysql -u admin -h udacityprimary.cbnj1wdsverw.eu-central-1.rds.amazonaws.com -p
+Enter password:
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 17
+Server version: 8.0.23 Source distribution
+
+Copyright (c) 2000, 2021, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> use udacity
+ERROR 1049 (42000): Unknown database 'udacity'
+mysql> CREATE DATABASE udacity;
+Query OK, 1 row affected (0.02 sec)
+
+mysql> use udacity
+Database changed
+mysql> CREATE TABLE test_table (message CHAR(30));
+Query OK, 0 rows affected (0.05 sec)
+
+mysql> show tables;
++-------------------+
+| Tables_in_udacity |
++-------------------+
+| test_table        |
++-------------------+
+1 row in set (0.00 sec)
+
+mysql> INSERT INTO test_table VALUES ('Hi Udacity');
+Query OK, 1 row affected (0.02 sec)
+
+mysql> SELECT * FROM test_table;
++------------+
+| message    |
++------------+
+| Hi Udacity |
++------------+
+1 row in set (0.00 sec)
+
+mysql>
